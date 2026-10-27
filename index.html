@@ -273,6 +273,21 @@ weekdays.forEach(day => {
 
     cell.onclick = function () {
 
+  document
+    .querySelectorAll(".day")
+    .forEach(d => d.style.border = "none");
+
+  cell.style.border = "2px solid #c9a227";
+
+  document.getElementById(
+    "selectedDate"
+  ).textContent =
+    day + " " +
+    monthsIrish[currentMonth] +
+    " " +
+    currentYear;
+};
+
       document.getElementById(
         "selectedDate"
       ).textContent =
