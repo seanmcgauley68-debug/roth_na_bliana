@@ -141,7 +141,23 @@
   <section id="settingsScreen" class="screen">
     <div class="card">
       <h2>Socruithe</h2>
-      <p>Birthdays, backups and settings.</p>
+      <label>Name</label>
+<input id="birthdayName">
+
+<label>Day</label>
+<input id="birthdayDay" type="number">
+
+<label>Month</label>
+<input id="birthdayMonth" type="number">
+
+<label>Year</label>
+<input id="birthdayYear" type="number">
+
+<button onclick="addBirthday()">
+Add Birthday
+</button>
+
+<div id="birthdayList"></div>
     </div>
   </section>
   <nav class="bottomNav"><button onclick="showScreen('homeScreen')">Baile</button><button
