@@ -326,7 +326,8 @@ function changeMonth(direction) {
     currentYear++;
   }
 
-  drawCalendar();
+  showNextBirthday();
+drawCalendar();
 }
 
 let birthdays =
@@ -368,11 +369,64 @@ document.getElementById("birthdayYear").value = "";
     document.getElementById("birthdayList");
 
   list.innerHTML = birthdays
-    .map(b =>
-      `${b.name} - ${b.day}/${b.month}/${b.year}`
-    )
-    .join("<br>");
+  .map(b =>
+    `🎂 ${b.name}<br>${b.day}/${b.month}/${b.year}`
+  )
+  .join("<hr>");
 }
+function showNextBirthday() {
+
+  if (birthdays.length === 0) {
+    return;
+  }
+
+  const today = new Date();
+
+  let next = null;
+  let smallestDiff = Infinity;
+
+  birthdays.forEach(b => {
+
+    let birthday = new Date(
+      today.getFullYear(),
+      Number(b.month) - 1,
+      Number(b.day)
+    );
+
+    if (birthday < today) {
+      birthday.setFullYear(
+        today.getFullYear() + 1
+      );
+    }
+
+    const diff =
+      birthday - today;
+
+    if (diff < smallestDiff) {
+      smallestDiff = diff;
+      next = b;
+    }
+
+  });
+
+  if (next) {
+
+    const daysAway =
+      Math.ceil(
+        smallestDiff / 86400000
+      );
+
+    document.getElementById(
+      "upcomingBirthdays"
+    ).innerHTML = `
+      🎂 ${next.name}<br>
+      ${next.day}/${next.month}<br>
+      ${daysAway} days away
+    `;
+  }
+}
+
+showNextBirthday();
 
 drawCalendar();
 
