@@ -314,6 +314,23 @@ cell.innerHTML = hasBirthday
     monthsIrish[currentMonth] +
     " " +
     currentYear;
+
+  const matches = birthdays.filter(b =>
+    Number(b.day) === day &&
+    Number(b.month) === currentMonth + 1
+  );
+
+  document.getElementById(
+    "selectedBirthdays"
+  ).innerHTML =
+    matches.length > 0
+      ? matches.map(b => {
+          const age =
+            currentYear - Number(b.year);
+
+          return `🎂 ${b.name} (${age})`;
+        }).join("<br>")
+      : "";
 };
 
     calendar.appendChild(cell);
