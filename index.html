@@ -328,7 +328,10 @@ cell.innerHTML = hasBirthday
           const age =
             currentYear - Number(b.year);
 
-          return `🎂 ${b.name} (${age})`;
+          return `
+🎂 ${b.name}<br>
+Aois / Age: ${age}
+`;
         }).join("<br>")
       : "";
 };
