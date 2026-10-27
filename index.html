@@ -158,6 +158,11 @@ Add Birthday
 </button>
 
 <div id="birthdayList"></div>
+<h3>Saved Birthdays</h3>
+
+<div id="birthdayList">
+  No birthdays added yet.
+</div>
   </section>
   <nav class="bottomNav"><button onclick="showScreen('homeScreen')">Baile</button><button
       onclick="showScreen('calendarScreen')">Féilire</button><button
@@ -324,6 +329,39 @@ function changeMonth(direction) {
   }
 
   drawCalendar();
+}
+
+let birthdays = [];
+
+function addBirthday() {
+
+  const name =
+    document.getElementById("birthdayName").value;
+
+  const day =
+    document.getElementById("birthdayDay").value;
+
+  const month =
+    document.getElementById("birthdayMonth").value;
+
+  const year =
+    document.getElementById("birthdayYear").value;
+
+  birthdays.push({
+    name,
+    day,
+    month,
+    year
+  });
+
+  const list =
+    document.getElementById("birthdayList");
+
+  list.innerHTML = birthdays
+    .map(b =>
+      `${b.name} - ${b.day}/${b.month}/${b.year}`
+    )
+    .join("<br>");
 }
 
 drawCalendar();
