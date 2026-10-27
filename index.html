@@ -1,42 +1,129 @@
 <!DOCTYPE html>
 <html lang="ga">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Roth na Bliana</title>
-    <style>body{margin:0;background:#102116;color:#f8f4e8;font-family:Arial,sans-serif}
-      header{background:#1f4d2e;padding:15px;text-align:center}h1{margin:0;color:#c9a227}.c
-      ard{background:#183220;margin:12px;border-radius:12px;padding:15px}.
-      screen{display:none;padding-bottom:90px}.
-      screen.active{display:block}.
-      bottomNav{position:fixed;bottom:0;left:0;right:0;height:70px;background:#1f4d2e;border-top:2px solid #c9a227;display:flex;justify-content:space-around;align-items:center}.
-      bottomNav button{background:none;border:none;color:#fff}.
-      calendar{display:grid;grid-template-columns:repeat(7,1fr);gap:5px}.
-      day{background:#234030;padding:8px;border-radius:8px;text-align:center;cursor:pointer}</style></head><body><header>
-        <h1>Roth na Bliana</h1>
-        <div>Wheel of the Year</div>
-      </header>
-        <section id="homeScreen" class="screen active">
-          <div class="card"><h2 id="irishDate"></h2>
-            <div id="englishDate"></div></div>
-          <div class="card"><h2>Focal an Lae</h2>
-            <div id="wordBox"></div></div>
-          <div class="card"><h2>Next Birthday</h2>
-            <div id="upcomingBirthdays"></div></div></section>
-        <section id="calendarScreen" class="screen">
-          <div class="card"><h2 id="monthIrish"></h2>
-            <div id="calendar" class="calendar"></div></div></section>
-        <section id="wheelScreen" class="screen"><div class="card">
-          <h2>Roth na Bliana</h2><div id="festivalInfo">Festival information</div></div></section>
-        <section id="learnScreen" class="screen"><div class="card"><h2>Foghlaim Gaeilge</h2><p>Learning section.</p></div></section>
-        <section id="settingsScreen" class="screen"><div class="card"><h2>Socruithe</h2><p>Birthdays, backups and settings.</p></div></section>
-        <nav class="bottomNav"><button onclick="showScreen('homeScreen')">Baile</button>
-          <button onclick="showScreen('calendarScreen')">Féilire</button><button onclick="showScreen('wheelScreen')">Roth</button>
-          <button onclick="showScreen('learnScreen')">Foghlaim</button>
-          <button onclick="showScreen('settingsScreen')">Socruithe</button></nav>
-        <script>function showScreen(id)
-{document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
- document.getElementById(id).classList.add('active')}const d=new Date();
-          document.getElementById('irishDate').textContent=d.toDateString();
-          document.getElementById('englishDate').textContent=d.toDateString();
-          document.getElementById('wordBox').textContent='uisce - water';</script></body></html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Roth na Bliana</title>
+  <style>
+    body {
+      margin: 0;
+      background: #102116;
+      color: #f8f4e8;
+      font-family: Arial, sans-serif
+    }
+
+    header {
+      background: #1f4d2e;
+      padding: 15px;
+      text-align: center
+    }
+
+    h1 {
+      margin: 0;
+      color: #c9a227
+    }
+
+    .card {
+      background: #183220;
+      margin: 12px;
+      border-radius: 12px;
+      padding: 15px
+    }
+
+    .screen {
+      display: none;
+      padding-bottom: 90px
+    }
+
+    .screen.active {
+      display: block
+    }
+
+    .bottomNav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 70px;
+      background: #1f4d2e;
+      border-top: 2px solid #c9a227;
+      display: flex;
+      justify-content: space-around;
+      align-items: center
+    }
+
+    .bottomNav button {
+      background: none;
+      border: none;
+      color: #fff
+    }
+
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px
+    }
+
+    .day {
+      background: #234030;
+      padding: 8px;
+      border-radius: 8px;
+      text-align: center;
+      cursor: pointer
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Roth na Bliana</h1>
+    <div>Wheel of the Year</div>
+  </header>
+  <section id="homeScreen" class="screen active">
+    <div class="card">
+      <h2 id="irishDate"></h2>
+      <div id="englishDate"></div>
+    </div>
+    <div class="card">
+      <h2>Focal an Lae</h2>
+      <div id="wordBox"></div>
+    </div>
+    <div class="card">
+      <h2>Next Birthday</h2>
+      <div id="upcomingBirthdays"></div>
+    </div>
+  </section>
+  <section id="calendarScreen" class="screen">
+    <div class="card">
+      <h2 id="monthIrish"></h2>
+      <div id="calendar" class="calendar"></div>
+    </div>
+  </section>
+  <section id="wheelScreen" class="screen">
+    <div class="card">
+      <h2>Roth na Bliana</h2>
+      <div id="festivalInfo">Festival information</div>
+    </div>
+  </section>
+  <section id="learnScreen" class="screen">
+    <div class="card">
+      <h2>Foghlaim Gaeilge</h2>
+      <p>Learning section.</p>
+    </div>
+  </section>
+  <section id="settingsScreen" class="screen">
+    <div class="card">
+      <h2>Socruithe</h2>
+      <p>Birthdays, backups and settings.</p>
+    </div>
+  </section>
+  <nav class="bottomNav"><button onclick="showScreen('homeScreen')">Baile</button><button
+      onclick="showScreen('calendarScreen')">Féilire</button><button
+      onclick="showScreen('wheelScreen')">Roth</button><button
+      onclick="showScreen('learnScreen')">Foghlaim</button><button
+      onclick="showScreen('settingsScreen')">Socruithe</button></nav>
+  <script>function showScreen(id) { document.querySelectorAll('.screen').forEach(s => s.classList.remove('active')); document.getElementById(id).classList.add('active') } const d = new Date(); document.getElementById('irishDate').textContent = d.toDateString(); document.getElementById('englishDate').textContent = d.toDateString(); document.getElementById('wordBox').textContent = 'uisce - water';</script>
+</body>
+
+</html>
