@@ -334,7 +334,19 @@ let birthdays =
   JSON.parse(
     localStorage.getItem("birthdays")
   ) || [];
+function displayBirthdays() {
 
+  const list =
+    document.getElementById("birthdayList");
+
+  if (!list) return;
+
+  list.innerHTML = birthdays
+    .map(b =>
+      `🎂 ${b.name}<br>${b.day}/${b.month}/${b.year}`
+    )
+    .join("<hr>");
+}
 function addBirthday() {
 
   const name =
@@ -426,8 +438,8 @@ function showNextBirthday() {
   }
 }
 
+displayBirthdays();
 showNextBirthday();
-
 drawCalendar();
 
 </script>
