@@ -1,0 +1,26 @@
+
+{
+  "id": "/roth-na-bliana/",
+  "name": "Roth na Bliana",
+  "short_name": "Roth na Bliana",
+  "description": "An Irish-language Wheel of the Year calendar featuring Gaelic festivals, equinoxes, solstices, Irish vocabulary and family birthdays.",
+  "start_url": "/roth-na-bliana/",
+  "scope": "/roth-na-bliana/",
+  "display": "standalone",
+  "background_color": "#f5f0df",
+  "theme_color": "#174d32",
+  "icons": [
+    {
+      "src": "/roth-na-bliana/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/roth-na-bliana/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
