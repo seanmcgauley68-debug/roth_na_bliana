@@ -95,11 +95,37 @@
     </div>
   </section>
   <section id="calendarScreen" class="screen">
-    <div class="card">
-      <h2 id="monthIrish"></h2>
-      <div id="calendar" class="calendar"></div>
+
+  <div class="card">
+
+    <div style="display:flex;justify-content:space-between;align-items:center;">
+
+      <button onclick="changeMonth(-1)">◀</button>
+
+      <div>
+        <h2 id="monthIrish"></h2>
+        <div id="monthEnglish"></div>
+      </div>
+
+      <button onclick="changeMonth(1)">▶</button>
+
     </div>
-  </section>
+
+    <div id="calendar" class="calendar"></div>
+
+  </div>
+
+  <div class="card">
+
+    <h3>Dáta Roghnaithe</h3>
+
+    <div id="selectedDate">
+      Roghnaigh lá
+    </div>
+
+  </div>
+
+</section>
   <section id="wheelScreen" class="screen">
     <div class="card">
       <h2>Roth na Bliana</h2>
