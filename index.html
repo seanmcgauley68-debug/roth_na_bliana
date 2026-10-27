@@ -161,7 +161,6 @@ Add Birthday
 <h3>Saved Birthdays</h3>
 
 <div id="birthdayList">
-  No birthdays added yet.
 </div>
   </section>
   <nav class="bottomNav"><button onclick="showScreen('homeScreen')">Baile</button><button
@@ -331,7 +330,10 @@ function changeMonth(direction) {
   drawCalendar();
 }
 
-let birthdays = [];
+let birthdays =
+  JSON.parse(
+    localStorage.getItem("birthdays")
+  ) || [];
 
 function addBirthday() {
 
@@ -353,7 +355,14 @@ function addBirthday() {
     month,
     year
   });
-
+  localStorage.setItem(
+  "birthdays",
+  JSON.stringify(birthdays)
+);
+document.getElementById("birthdayName").value = "";
+document.getElementById("birthdayDay").value = "";
+document.getElementById("birthdayMonth").value = "";
+document.getElementById("birthdayYear").value = "";
   const list =
     document.getElementById("birthdayList");
 
