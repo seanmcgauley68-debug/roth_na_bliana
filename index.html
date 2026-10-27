@@ -193,8 +193,21 @@ let currentDate = new Date();
 let currentMonth = currentDate.getMonth();
 let currentYear = currentDate.getFullYear();
 
+const daysIrish = [
+  "Dé Domhnaigh",
+  "Dé Luain",
+  "Dé Máirt",
+  "Dé Céadaoin",
+  "Déardaoin",
+  "Dé hAoine",
+  "Dé Sathairn"
+];
+
 document.getElementById("irishDate").textContent =
-  currentDate.toDateString();
+  daysIrish[currentDate.getDay()] + " " +
+  currentDate.getDate() + " " +
+  monthsIrish[currentDate.getMonth()] + " " +
+  currentDate.getFullYear();
 
 document.getElementById("englishDate").textContent =
   currentDate.toDateString();
