@@ -408,10 +408,30 @@ function addBirthday() {
 
   const year =
     document.getElementById("birthdayYear").value;
-if (!name || !day || !month || !year) {
-  return;
-}
-let events =
+
+  if (!name || !day || !month || !year) {
+    return;
+  }
+
+  birthdays.push({
+    name,
+    day,
+    month,
+    year
+  });
+
+  localStorage.setItem(
+    "birthdays",
+    JSON.stringify(birthdays)
+  );
+
+  document.getElementById("birthdayName").value = "";
+  document.getElementById("birthdayDay").value = "";
+  document.getElementById("birthdayMonth").value = "";
+  document.getElementById("birthdayYear").value = "";
+
+  displayBirthdays();
+  let events =
   JSON.parse(
     localStorage.getItem("events")
   ) || [];
@@ -467,30 +487,9 @@ function addEvent() {
   document.getElementById("eventMonth").value = "";
   document.getElementById("eventYear").value = "";
 }
-  birthdays.push({
-    name,
-    day,
-    month,
-    year
-  });
-  localStorage.setItem(
-  "birthdays",
-  JSON.stringify(birthdays)
-);
-document.getElementById("birthdayName").value = "";
-document.getElementById("birthdayDay").value = "";
-document.getElementById("birthdayMonth").value = "";
-document.getElementById("birthdayYear").value = "";
-  const list =
-    document.getElementById("birthdayList");
-
-  list.innerHTML = birthdays
-  .map(b =>
-    `🎂 ${b.name}<br>${b.day}/${b.month}/${b.year}`
-  )
-  .join("<hr>");
+  showNextBirthday();
+  drawCalendar();
 }
-function showNextBirthday() {
 
   if (birthdays.length === 0) {
     return;
