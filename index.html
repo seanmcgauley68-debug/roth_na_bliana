@@ -347,7 +347,9 @@ function addBirthday() {
 
   const year =
     document.getElementById("birthdayYear").value;
-
+if (!name || !day || !month || !year) {
+  return;
+}
   birthdays.push({
     name,
     day,
