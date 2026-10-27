@@ -290,7 +290,14 @@ weekdays.forEach(day => {
 
     cell.className = "day";
 
-    cell.textContent = day;
+    const hasBirthday = birthdays.some(b =>
+  Number(b.day) === day &&
+  Number(b.month) === currentMonth + 1
+);
+
+cell.innerHTML = hasBirthday
+  ? `${day}<br>🎂`
+  : day;
 
     cell.onclick = function () {
 
