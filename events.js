@@ -3,6 +3,10 @@ let events =
     localStorage.getItem("events")
   ) || [];
 
+if (!Array.isArray(events)) {
+  events = [];
+}
+
 function displayEvents() {
 
   const list =
