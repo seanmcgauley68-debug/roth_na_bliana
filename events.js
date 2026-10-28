@@ -21,6 +21,62 @@ function displayEvents() {
     .join("<hr>");
 }
 
+function showNextEvent() {
+
+  const box =
+    document.getElementById("upcomingEvents");
+
+  if (!box) return;
+
+  if (events.length === 0) {
+    box.innerHTML = "";
+    return;
+  }
+
+  const today = new Date();
+
+  let next = null;
+  let smallestDiff = Infinity;
+
+  events.forEach(e => {
+
+    const eventDate = new Date(
+      Number(e.year),
+      Number(e.month) - 1,
+      Number(e.day)
+    );
+
+    if (eventDate < today) {
+      return;
+    }
+
+    const diff =
+      eventDate - today;
+
+    if (diff < smallestDiff) {
+      smallestDiff = diff;
+      next = e;
+    }
+
+  });
+
+  if (!next) {
+    box.innerHTML = "";
+    return;
+  }
+
+  const daysAway =
+    Math.ceil(
+      smallestDiff / 86400000
+    );
+
+  box.innerHTML = `
+    📅 ${next.name}<br>
+    ${next.day}/${next.month}/${next.year}<br>
+    ${daysAway} days away
+  `;
+}
+
 function addEvent() {
 
   const name =
@@ -52,6 +108,7 @@ function addEvent() {
   );
 
   displayEvents();
+  showNextEvent();
 
   document.getElementById("eventName").value = "";
   document.getElementById("eventDay").value = "";
@@ -61,5 +118,8 @@ function addEvent() {
 
 document.addEventListener(
   "DOMContentLoaded",
-  displayEvents
+  () => {
+    displayEvents();
+    showNextEvent();
+  }
 );
