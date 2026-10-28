@@ -315,10 +315,20 @@ weekdays.forEach(day => {
   Number(b.day) === day &&
   Number(b.month) === currentMonth + 1
 );
+const hasEvent = events.some(e =>
+  Number(e.day) === day &&
+  Number(e.month) === currentMonth + 1
+);
 
-cell.innerHTML = hasBirthday
-  ? `${day}<br>🎂`
-  : day;
+let markers = "";
+
+if (hasBirthday) markers += "🎂";
+if (hasEvent) markers += "📅";
+
+cell.innerHTML =
+  markers
+    ? `${day}<br>${markers}`
+    : day;
 
     cell.onclick = function () {
 
