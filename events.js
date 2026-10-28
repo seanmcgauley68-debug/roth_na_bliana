@@ -6,7 +6,16 @@ window.events =
 if (!Array.isArray(events)) {
   events = [];
 }
-
+const builtInEvents = [
+  { name: "Imbolc", day: 1, month: 2 },
+  { name: "Spring Equinox", day: 20, month: 3 },
+  { name: "Bealtaine", day: 1, month: 5 },
+  { name: "Summer Solstice", day: 21, month: 6 },
+  { name: "Lúnasa", day: 1, month: 8 },
+  { name: "Autumn Equinox", day: 22, month: 9 },
+  { name: "Samhain", day: 31, month: 10 },
+  { name: "Winter Solstice", day: 21, month: 12 }
+];
 function displayEvents() {
 
   const list =

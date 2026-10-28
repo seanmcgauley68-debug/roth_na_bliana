@@ -322,10 +322,15 @@ weekdays.forEach(day => {
   Number(b.month) === currentMonth + 1
 );
 const hasEvent =
-  typeof window.events !== "undefined" &&
-  window.events.some(e =>
-    Number(e.day) === day &&
-    Number(e.month) === currentMonth + 1
+  (typeof window.events !== "undefined" &&
+   window.events.some(e =>
+     Number(e.day) === day &&
+     Number(e.month) === currentMonth + 1
+   )) ||
+
+  builtInEvents.some(e =>
+    e.day === day &&
+    e.month === currentMonth + 1
   );
 
 let markers = "";
@@ -374,10 +379,19 @@ Aois / Age: ${age}
         }).join("<br>")
       : "";
 
-  const eventMatches = events.filter(e =>
+  const eventMatches = [
+
+  ...events.filter(e =>
     Number(e.day) === day &&
     Number(e.month) === currentMonth + 1
-  );
+  ),
+
+  ...builtInEvents.filter(e =>
+    e.day === day &&
+    e.month === currentMonth + 1
+  )
+
+];
 
   document.getElementById(
     "selectedEvents"
