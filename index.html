@@ -334,7 +334,7 @@ cell.innerHTML =
     ? `${day}<br>${markers}`
     : day;
 
-    cell.onclick = function () {
+cell.onclick = function () {
 
   document
     .querySelectorAll(".day")
@@ -342,34 +342,47 @@ cell.innerHTML =
 
   cell.style.border = "2px solid #c9a227";
 
-document.getElementById(
-  "selectedBirthdays"
-).innerHTML =
-  matches.length > 0
-    ? matches.map(b => {
-        const age =
-          currentYear - Number(b.year);
+  document.getElementById(
+    "selectedDate"
+  ).textContent =
+    day + " " +
+    monthsIrish[currentMonth] +
+    " " +
+    currentYear;
 
-        return `
+  const matches = birthdays.filter(b =>
+    Number(b.day) === day &&
+    Number(b.month) === currentMonth + 1
+  );
+
+  document.getElementById(
+    "selectedBirthdays"
+  ).innerHTML =
+    matches.length > 0
+      ? matches.map(b => {
+          const age =
+            currentYear - Number(b.year);
+
+          return `
 🎂 ${b.name}<br>
 Aois / Age: ${age}
 `;
-      }).join("<br>")
-    : "";
+        }).join("<br>")
+      : "";
 
-const eventMatches = events.filter(e =>
-  Number(e.day) === day &&
-  Number(e.month) === currentMonth + 1
-);
+  const eventMatches = events.filter(e =>
+    Number(e.day) === day &&
+    Number(e.month) === currentMonth + 1
+  );
 
-document.getElementById(
-  "selectedEvents"
-).innerHTML =
-  eventMatches.length > 0
-    ? eventMatches.map(e =>
-        `📅 ${e.name}`
-      ).join("<br>")
-    : "";
+  document.getElementById(
+    "selectedEvents"
+  ).innerHTML =
+    eventMatches.length > 0
+      ? eventMatches.map(e =>
+          `📅 ${e.name}`
+        ).join("<br>")
+      : "";
 };
 
     calendar.appendChild(cell);
