@@ -123,6 +123,7 @@
       Roghnaigh lá
     </div>
 <div id="selectedBirthdays"></div>
+<div id="selectedEvents"></div>
   </div>
 
 </section>
@@ -341,33 +342,34 @@ cell.innerHTML =
 
   cell.style.border = "2px solid #c9a227";
 
-  document.getElementById(
-    "selectedDate"
-  ).textContent =
-    day + " " +
-    monthsIrish[currentMonth] +
-    " " +
-    currentYear;
+document.getElementById(
+  "selectedBirthdays"
+).innerHTML =
+  matches.length > 0
+    ? matches.map(b => {
+        const age =
+          currentYear - Number(b.year);
 
-  const matches = birthdays.filter(b =>
-    Number(b.day) === day &&
-    Number(b.month) === currentMonth + 1
-  );
-
-  document.getElementById(
-    "selectedBirthdays"
-  ).innerHTML =
-    matches.length > 0
-      ? matches.map(b => {
-          const age =
-            currentYear - Number(b.year);
-
-          return `
+        return `
 🎂 ${b.name}<br>
 Aois / Age: ${age}
 `;
-        }).join("<br>")
-      : "";
+      }).join("<br>")
+    : "";
+
+const eventMatches = events.filter(e =>
+  Number(e.day) === day &&
+  Number(e.month) === currentMonth + 1
+);
+
+document.getElementById(
+  "selectedEvents"
+).innerHTML =
+  eventMatches.length > 0
+    ? eventMatches.map(e =>
+        `📅 ${e.name}`
+      ).join("<br>")
+    : "";
 };
 
     calendar.appendChild(cell);
