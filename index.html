@@ -132,10 +132,49 @@
 
 </section>
   <section id="wheelScreen" class="screen">
-    <div class="card">
-      <h2>Roth na Bliana</h2>
-      <div id="festivalInfo">Festival information</div>
-    </div>
+<div class="card">
+
+  <h2>Roth na Bliana</h2>
+
+  <button onclick="showFestival('imbolc')">
+    Imbolc
+  </button>
+
+  <button onclick="showFestival('bealtaine')">
+    Bealtaine
+  </button>
+
+  <button onclick="showFestival('lughnasa')">
+    Lúnasa
+  </button>
+
+  <button onclick="showFestival('samhain')">
+    Samhain
+  </button>
+
+  <button onclick="showFestival('spring')">
+    Spring Equinox
+  </button>
+
+  <button onclick="showFestival('summer')">
+    Summer Solstice
+  </button>
+
+  <button onclick="showFestival('autumn')">
+    Autumn Equinox
+  </button>
+
+  <button onclick="showFestival('winter')">
+    Winter Solstice
+  </button>
+
+  <hr>
+
+  <div id="festivalInfo">
+    Select a festival
+  </div>
+
+</div>
   </section>
   <section id="learnScreen" class="screen">
     <div class="card">
@@ -531,7 +570,66 @@ function showNextBirthday() {
     `;
   }
 }
+function showFestival(festival) {
 
+  const info =
+    document.getElementById(
+      "festivalInfo"
+    );
+
+  const festivals = {
+
+    imbolc: `
+      <h3>Imbolc</h3>
+      <p>1 February</p>
+      <p>Beginning of Spring. Associated with Brigid, light and renewal.</p>
+    `,
+
+    bealtaine: `
+      <h3>Bealtaine</h3>
+      <p>1 May</p>
+      <p>Festival of fire. Traditional start of Summer.</p>
+    `,
+
+    lughnasa: `
+      <h3>Lúnasa</h3>
+      <p>1 August</p>
+      <p>First harvest festival dedicated to Lugh.</p>
+    `,
+
+    samhain: `
+      <h3>Samhain</h3>
+      <p>31 October</p>
+      <p>End of harvest season and beginning of Winter.</p>
+    `,
+
+    spring: `
+      <h3>Spring Equinox</h3>
+      <p>20 March</p>
+      <p>Day and night are approximately equal.</p>
+    `,
+
+    summer: `
+      <h3>Summer Solstice</h3>
+      <p>21 June</p>
+      <p>Longest day of the year.</p>
+    `,
+
+    autumn: `
+      <h3>Autumn Equinox</h3>
+      <p>22 September</p>
+      <p>Day and night are approximately equal.</p>
+    `,
+
+    winter: `
+      <h3>Winter Solstice</h3>
+      <p>21 December</p>
+      <p>Shortest day of the year.</p>
+    `
+  };
+
+  info.innerHTML = festivals[festival];
+}
 displayBirthdays();
 showNextBirthday();
 drawCalendar();
