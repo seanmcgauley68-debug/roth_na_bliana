@@ -136,75 +136,125 @@
 
   <h2>Roth na Bliana</h2>
 
- <svg viewBox="0 0 500 500" width="100%">
+<div id="wheelGraphic">
 
-  <circle cx="250" cy="250" r="180"
-    fill="none"
-    stroke="#c9a227"
-    stroke-width="4"/>
+<svg viewBox="0 0 600 600" width="100%" style="max-width:600px;display:block;margin:auto;">
 
-  <circle cx="250" cy="250" r="120"
-    fill="none"
-    stroke="#c9a227"
-    stroke-width="2"/>
+  <circle cx="300" cy="300" r="240"
+          fill="none"
+          stroke="#c9a227"
+          stroke-width="6"/>
 
-  <text x="250" y="40"
-    text-anchor="middle"
-    fill="#f8f4e8"
-    onclick="showFestival('samhain')">
-    Samhain
-  </text>
+  <circle cx="300" cy="300" r="120"
+          fill="none"
+          stroke="#c9a227"
+          stroke-width="3"/>
 
-  <text x="420" y="140"
-    text-anchor="middle"
-    fill="#f8f4e8"
-    onclick="showFestival('winter')">
-    Winter Solstice
-  </text>
+  <line x1="300" y1="60"  x2="300" y2="540" stroke="#c9a227"/>
+  <line x1="60"  y1="300" x2="540" y2="300" stroke="#c9a227"/>
 
-  <text x="420" y="360"
-    text-anchor="middle"
-    fill="#f8f4e8"
-    onclick="showFestival('imbolc')">
-    Imbolc
-  </text>
+  <line x1="130" y1="130" x2="470" y2="470" stroke="#c9a227"/>
+  <line x1="470" y1="130" x2="130" y2="470" stroke="#c9a227"/>
 
-  <text x="250" y="470"
-    text-anchor="middle"
-    fill="#f8f4e8"
-    onclick="showFestival('spring')">
-    Spring Equinox
-  </text>
+  <g onclick="showFestival('samhain')" style="cursor:pointer">
+    <text x="300" y="95"
+          text-anchor="middle"
+          fill="#f8f4e8"
+          font-size="24">
+      Samhain
+    </text>
+  </g>
 
-  <text x="80" y="360"
-    text-anchor="middle"
-    fill="#f8f4e8"
-    onclick="showFestival('bealtaine')">
-    Bealtaine
-  </text>
+  <g onclick="showFestival('winter')" style="cursor:pointer">
+    <text x="470" y="160"
+          text-anchor="middle"
+          fill="#f8f4e8"
+          font-size="18">
+      Winter
+    </text>
+    <text x="470" y="185"
+          text-anchor="middle"
+          fill="#f8f4e8"
+          font-size="18">
+      Solstice
+    </text>
+  </g>
 
-  <text x="80" y="140"
-    text-anchor="middle"
-    fill="#f8f4e8"
-    onclick="showFestival('summer')">
-    Summer Solstice
-  </text>
+  <g onclick="showFestival('imbolc')" style="cursor:pointer">
+    <text x="505" y="315"
+          text-anchor="middle"
+          fill="#f8f4e8"
+          font-size="24">
+      Imbolc
+    </text>
+  </g>
 
-  <text x="150" y="80"
-    text-anchor="middle"
-    fill="#f8f4e8"
-    onclick="showFestival('lughnasa')">
-    Lúnasa
-  </text>
+  <g onclick="showFestival('spring')" style="cursor:pointer">
+    <text x="470" y="445"
+          text-anchor="middle"
+          fill="#f8f4e8"
+          font-size="18">
+      Spring
+    </text>
+    <text x="470" y="470"
+          text-anchor="middle"
+          fill="#f8f4e8"
+          font-size="18">
+      Equinox
+    </text>
+  </g>
 
-  <text x="150" y="420"
-    text-anchor="middle"
-    fill="#f8f4e8"
-    onclick="showFestival('autumn')">
-    Autumn Equinox
-  </text>
+  <g onclick="showFestival('bealtaine')" style="cursor:pointer">
+    <text x="300" y="530"
+          text-anchor="middle"
+          fill="#f8f4e8"
+          font-size="24">
+      Bealtaine
+    </text>
+  </g>
+
+  <g onclick="showFestival('summer')" style="cursor:pointer">
+    <text x="130" y="445"
+          text-anchor="middle"
+          fill="#f8f4e8"
+          font-size="18">
+      Summer
+    </text>
+    <text x="130" y="470"
+          text-anchor="middle"
+          fill="#f8f4e8"
+          font-size="18">
+      Solstice
+    </text>
+  </g>
+
+  <g onclick="showFestival('lughnasa')" style="cursor:pointer">
+    <text x="95" y="315"
+          text-anchor="middle"
+          fill="#f8f4e8"
+          font-size="24">
+      Lúnasa
+    </text>
+  </g>
+
+  <g onclick="showFestival('autumn')" style="cursor:pointer">
+    <text x="130" y="160"
+          text-anchor="middle"
+          fill="#f8f4e8"
+          font-size="18">
+      Autumn
+    </text>
+    <text x="130" y="185"
+          text-anchor="middle"
+          fill="#f8f4e8"
+          font-size="18">
+      Equinox
+    </text>
+  </g>
 
 </svg>
+
+</div>
   <hr>
 
   <div id="festivalInfo">
