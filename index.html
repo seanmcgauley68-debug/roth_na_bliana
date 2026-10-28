@@ -188,6 +188,7 @@ Add Event
       onclick="showScreen('wheelScreen')">Roth</button><button
       onclick="showScreen('learnScreen')">Foghlaim</button><button
       onclick="showScreen('settingsScreen')">Socruithe</button></nav>
+    <script src="events.js"></script>
   <script>function showScreen(id) {
   document
     .querySelectorAll(".screen")
@@ -315,10 +316,12 @@ weekdays.forEach(day => {
   Number(b.day) === day &&
   Number(b.month) === currentMonth + 1
 );
-const hasEvent = events.some(e =>
-  Number(e.day) === day &&
-  Number(e.month) === currentMonth + 1
-);
+const hasEvent =
+  typeof events !== "undefined" &&
+  events.some(e =>
+    Number(e.day) === day &&
+    Number(e.month) === currentMonth + 1
+  );
 
 let markers = "";
 
@@ -501,6 +504,6 @@ showNextBirthday();
 drawCalendar();
 
 </script>
-<script src="events.js"></script>
+
 </body>
 </html>
