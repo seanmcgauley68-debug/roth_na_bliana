@@ -1,4 +1,4 @@
-let events =
+window.events =
   JSON.parse(
     localStorage.getItem("events")
   ) || [];
