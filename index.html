@@ -317,8 +317,8 @@ weekdays.forEach(day => {
   Number(b.month) === currentMonth + 1
 );
 const hasEvent =
-  typeof events !== "undefined" &&
-  events.some(e =>
+  typeof window.events !== "undefined" &&
+  window.events.some(e =>
     Number(e.day) === day &&
     Number(e.month) === currentMonth + 1
   );
