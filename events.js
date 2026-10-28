@@ -54,3 +54,8 @@ function addEvent() {
   document.getElementById("eventMonth").value = "";
   document.getElementById("eventYear").value = "";
 }
+
+document.addEventListener(
+  "DOMContentLoaded",
+  displayEvents
+);
